@@ -17,7 +17,7 @@ public class MainActivity extends Activity {
         TextView aluno2 = findViewById(R.id.textView2);
         TextView aluno3 = findViewById(R.id.textView3);
         aluno1.setText(alunos.get(0)); //Pega o índice x da lista para atribuir àquele aluno
-        aluno1.setText(alunos.get(1));
-        aluno1.setText(alunos.get(2));
+        aluno2.setText(alunos.get(1));
+        aluno3.setText(alunos.get(2));
     }
 }
