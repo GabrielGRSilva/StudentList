@@ -1,4 +1,4 @@
-package com.example.aluramobile;
+package com.example.activity;
 
 import org.junit.Test;
 

@@ -1,9 +1,11 @@
-package com.example.aluramobile;
+package com.example.ui.activity;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.aluramobile.R;
 
 import java.util.ArrayList;
 import java.util.Arrays;
