@@ -15,16 +15,17 @@ import com.example.aluramobile.R;
 import com.example.model.Student;
 
 public class StudentForm extends AppCompatActivity {
-    final EditText capturedName = findViewById(R.id.activity_student_form_name);
-    final EditText capturedPhone = findViewById(R.id.activity_student_form_phone);
-    final EditText capturedEmail = findViewById(R.id.activity_student_form_email);
-    Button saveButton = findViewById(R.id.activity_student_form_save_button);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_student_form);
+        final EditText capturedName = findViewById(R.id.activity_student_form_name);
+        final EditText capturedPhone = findViewById(R.id.activity_student_form_phone);
+        final EditText capturedEmail = findViewById(R.id.activity_student_form_email);
+        Button saveButton = findViewById(R.id.activity_student_form_save_button);
+
         saveButton.setOnClickListener(v -> {
             String nome = capturedName.getText().toString();
             String phone = capturedPhone.getText().toString();
