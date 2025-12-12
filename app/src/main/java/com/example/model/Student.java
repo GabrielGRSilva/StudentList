@@ -1,5 +1,7 @@
 package com.example.model;
 
+import androidx.annotation.NonNull;
+
 public class Student {
     private final String nome;
     private final String phone;
@@ -11,15 +13,9 @@ public class Student {
         this.email = email;
     }
 
-    public String getNome() {
+    @NonNull
+    @Override
+    public String toString() {
         return nome;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public String getEmail() {
-        return email;
     }
 }
