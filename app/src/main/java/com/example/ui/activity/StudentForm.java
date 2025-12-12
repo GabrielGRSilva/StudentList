@@ -35,9 +35,7 @@ public class StudentForm extends AppCompatActivity {
             Student newStudent = new Student(nome, phone, email);
             dao.save(newStudent);
 
-           //Teste depois de salvar o estudante
-            startActivity(new Intent(this, MainActivity.class));
-            finish();
+            finish(); //Após salvar, finalizar esta activity (voltando na lista em MainActivity)
         });
             ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
                 Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
