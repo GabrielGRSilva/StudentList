@@ -5,14 +5,10 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.DAO.StudentDAO;
 import com.example.aluramobile.R;
 import com.example.model.Student;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
