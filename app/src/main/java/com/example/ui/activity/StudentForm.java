@@ -15,32 +15,45 @@ import com.example.aluramobile.R;
 import com.example.model.Student;
 
 public class StudentForm extends AppCompatActivity {
+    private EditText capturedName;
+    private EditText capturedPhone;
+    private EditText capturedEmail;
+    final StudentDAO dao = new StudentDAO();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_form);
-
-        final EditText capturedName = findViewById(R.id.activity_student_form_name);
-        final EditText capturedPhone = findViewById(R.id.activity_student_form_phone);
-        final EditText capturedEmail = findViewById(R.id.activity_student_form_email);
+        layoutConfig();
+        fieldInitialization();
         Button saveButton = findViewById(R.id.activity_student_form_save_button);
-
-        StudentDAO dao = new StudentDAO();
-
         saveButton.setOnClickListener(v -> {
-            String nome = capturedName.getText().toString();
-            String phone = capturedPhone.getText().toString();
-            String email = capturedEmail.getText().toString();
-            Student newStudent = new Student(nome, phone, email);
-            dao.save(newStudent);
-
-            finish(); //Após salvar, finalizar esta activity (voltando na lista em MainActivity)
+            createStudent();
         });
-            ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-                Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-                v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-                return insets;
-            });
-        };
+    }
+
+    private void layoutConfig() {
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            return insets;
+        });
+    }
+
+    private void createStudent() {
+        String nome = capturedName.getText().toString();
+        String phone = capturedPhone.getText().toString();
+        String email = capturedEmail.getText().toString();
+        Student newStudent = new Student(nome, phone, email);
+        dao.save(newStudent);
+        finish(); //Após salvar, finalizar esta activity (voltando na lista em MainActivity)
+    }
+
+    private void fieldInitialization() {
+        capturedName = findViewById(R.id.activity_student_form_name);
+        capturedPhone = findViewById(R.id.activity_student_form_phone);
+        capturedEmail = findViewById(R.id.activity_student_form_email);
+    }
+
+    ;
     }
