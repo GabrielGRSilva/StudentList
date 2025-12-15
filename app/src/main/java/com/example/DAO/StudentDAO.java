@@ -17,7 +17,7 @@ public class StudentDAO {
         }
     }
     public List<Student> getAll(){
-        return studentList;
+        return new ArrayList<>(studentList);
     }
 
 }
