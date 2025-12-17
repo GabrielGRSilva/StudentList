@@ -23,6 +23,7 @@ public class StudentForm extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTitle("Create New Student");
         setContentView(R.layout.activity_student_form);
         layoutConfig();
         fieldInitialization();
