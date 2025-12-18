@@ -1,3 +1,7 @@
+//Deprecated: Old version of the
+//app used this to save the create list,
+// without persistence through app closing/reopening
+
 package com.example.DAO;
 
 import com.example.model.Student;

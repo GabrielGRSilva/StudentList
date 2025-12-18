@@ -24,7 +24,6 @@ public class StudentForm extends AppCompatActivity {
     private EditText capturedEmail;
     private static ArrayList<Student> studentList = new ArrayList<>();
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,7 +69,7 @@ public class StudentForm extends AppCompatActivity {
         String json = gson.toJson(studentList);
 
         editor.putString("student_list_key", json);
-        editor.apply(); // 'apply' writes in the background
+        editor.apply();
     }
 
     public static ArrayList<Student> loadStudentList(SharedPreferences sharedPreferences) {
