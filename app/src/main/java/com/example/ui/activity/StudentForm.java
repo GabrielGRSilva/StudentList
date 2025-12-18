@@ -1,6 +1,6 @@
 package com.example.ui.activity;
 
-import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -10,15 +10,20 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.example.DAO.StudentDAO;
 import com.example.aluramobile.R;
 import com.example.model.Student;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.ArrayList;
 
 public class StudentForm extends AppCompatActivity {
     private EditText capturedName;
     private EditText capturedPhone;
     private EditText capturedEmail;
-    final StudentDAO dao = new StudentDAO();
+    private static ArrayList<Student> studentList = new ArrayList<>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +51,7 @@ public class StudentForm extends AppCompatActivity {
         String phone = capturedPhone.getText().toString();
         String email = capturedEmail.getText().toString();
         Student newStudent = new Student(nome, phone, email);
-        dao.save(newStudent);
+        saveStudentList(newStudent);
         finish(); //Após salvar, finalizar esta activity (voltando na lista em MainActivity)
     }
 
@@ -56,5 +61,28 @@ public class StudentForm extends AppCompatActivity {
         capturedEmail = findViewById(R.id.activity_student_form_email);
     }
 
-    ;
+    private void saveStudentList(Student newStudent) { //Saves list between app sessions
+        SharedPreferences sharedPreferences = getSharedPreferences("StudentListApp", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        Gson gson = new Gson();
+        studentList.add(newStudent);
+        String json = gson.toJson(studentList);
+
+        editor.putString("student_list_key", json);
+        editor.apply(); // 'apply' writes in the background
     }
+
+    public static ArrayList<Student> loadStudentList(SharedPreferences sharedPreferences) {
+        Gson gson = new Gson();
+        String json = sharedPreferences.getString("student_list_key", null);
+
+        if (json == null) {
+            return studentList;
+        }
+
+        Type type = new TypeToken<ArrayList<Student>>() {
+        }.getType();
+        return gson.fromJson(json, type);
+    }
+}

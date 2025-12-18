@@ -1,5 +1,6 @@
 package com.example.ui.activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -23,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setTitle("Student List");
         setContentView(R.layout.activity_main);
+        SharedPreferences sharedPreferences = getSharedPreferences("MyStudentApp", MODE_PRIVATE);
+        StudentForm.loadStudentList(sharedPreferences);
 
         FloatingActionButton fab = findViewById(R.id.floatingActionButton1);
         fab.setOnClickListener(v -> {
@@ -34,9 +37,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume(){ //Ao reabrir a Activity, e não apenas onCreate
         super.onResume();
         ListView studentList = findViewById(R.id.main_activity_lv1); //ListView de alunos
+        SharedPreferences sharedPreferences = getSharedPreferences("MyStudentApp", MODE_PRIVATE);
         studentList.setAdapter(new ArrayAdapter<>( //Adapter que conecta a ListView com a ArrayList, usando um layout padrão simple_list_item_1
                 this,
                 android.R.layout.simple_list_item_1,
-                this.all()));
+                StudentForm.loadStudentList(sharedPreferences)));
     }
 }
