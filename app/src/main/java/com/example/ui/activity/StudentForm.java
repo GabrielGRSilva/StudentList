@@ -22,7 +22,7 @@ public class StudentForm extends AppCompatActivity {
     private EditText capturedName;
     private EditText capturedPhone;
     private EditText capturedEmail;
-    private static ArrayList<Student> studentList = new ArrayList<>();
+    private static final ArrayList<Student> studentList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,9 +32,7 @@ public class StudentForm extends AppCompatActivity {
         layoutConfig();
         fieldInitialization();
         Button saveButton = findViewById(R.id.activity_student_form_save_button);
-        saveButton.setOnClickListener(v -> {
-            createStudent();
-        });
+        saveButton.setOnClickListener(v -> createStudent());
     }
 
     private void layoutConfig() {
