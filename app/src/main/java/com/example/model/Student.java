@@ -18,4 +18,17 @@ public class Student {
     public String toString() {
         return nome;
     }
+
+
+    public String getNome() {
+        return nome;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
 }
