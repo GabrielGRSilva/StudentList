@@ -1,6 +1,4 @@
-# androidstudy
-Personal studies on Android Studio with Java, Gradle and more!
-
+# StudentList
 I'm starting this repository with code I'm creating by following (and adapting) Alura's course on Android Studio and app creation with Java.
 
 Concepts I'm studying:
@@ -10,6 +8,7 @@ Concepts I'm studying:
 - Android Emulation☑️
 - Android Studio IDE☑️
 - OOP in Android with Java☑️
+- Serialization☑️
 
 ## USAGE
 
