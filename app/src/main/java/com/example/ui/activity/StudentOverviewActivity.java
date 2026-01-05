@@ -1,8 +1,7 @@
 package com.example.ui.activity;
-
-import android.content.SharedPreferences;
+import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.os.Parcelable;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,11 +10,11 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import com.example.aluramobile.R;
 import com.example.model.Student;
-
-import java.util.ArrayList;
+import java.util.Objects;
 
 public class StudentOverviewActivity extends AppCompatActivity {
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,10 +26,16 @@ public class StudentOverviewActivity extends AppCompatActivity {
             return insets;
         });
 
-        Bundle extras = getIntent().getExtras(); //Importa a ArrayList
-        assert extras != null;
-        ArrayList<Parcelable> arrayList  = extras.getParcelableArrayList("arraylist");
-        assert arrayList != null;
-        Student chosenStudent = (Student) arrayList.get(0);
+        Student student = Objects.requireNonNull(getIntent().getExtras()).getParcelable("student");
+        assert student != null;
+        setTitle(student.getNome());
+
+        TextView nameTextView = findViewById(R.id.overview_name);
+        TextView phoneTextView = findViewById(R.id.overview_phone);
+        TextView emailTextView = findViewById(R.id.overview_email);
+
+        nameTextView.setText(student.getNome());
+        phoneTextView.setText("Phone: " + student.getPhone());
+        emailTextView.setText("Email: " + student.getEmail());
     }
 }
