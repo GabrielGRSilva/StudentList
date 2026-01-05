@@ -2,7 +2,9 @@ package com.example.model;
 
 import androidx.annotation.NonNull;
 
-public class Student {
+import java.io.Serializable;
+
+public class Student implements Serializable {
     private final String nome;
     private final String phone;
     private final String email;

@@ -14,7 +14,6 @@ import java.util.Objects;
 
 public class StudentOverviewActivity extends AppCompatActivity {
 
-    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,7 +25,7 @@ public class StudentOverviewActivity extends AppCompatActivity {
             return insets;
         });
 
-        Student student = Objects.requireNonNull(getIntent().getExtras()).getParcelable("student");
+        Student student = (Student) getIntent().getSerializableExtra("student");// Recupera o objeto passado à activity
         assert student != null;
         setTitle(student.getNome());
 
@@ -35,7 +34,7 @@ public class StudentOverviewActivity extends AppCompatActivity {
         TextView emailTextView = findViewById(R.id.overview_email);
 
         nameTextView.setText(student.getNome());
-        phoneTextView.setText("Phone: " + student.getPhone());
-        emailTextView.setText("Email: " + student.getEmail());
+        phoneTextView.setText(student.getPhone());
+        emailTextView.setText(student.getEmail());
     }
 }

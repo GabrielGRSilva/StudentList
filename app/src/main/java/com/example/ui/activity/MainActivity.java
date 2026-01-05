@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
             Student clickedStudent = (Student) parent.getItemAtPosition(position);
 
             Intent intent = new Intent(MainActivity.this, StudentOverviewActivity.class);
-             intent.putExtra("student", (Parcelable) clickedStudent);
+             intent.putExtra("student", clickedStudent);
              startActivity(intent);
         });
     }
