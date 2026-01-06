@@ -21,9 +21,7 @@ public class MainActivity extends AppCompatActivity {
         StudentForm.loadStudentList(sharedPreferences);
 
         FloatingActionButton fab = findViewById(R.id.floatingActionButton1);
-        fab.setOnClickListener(v -> {
-            startActivity(new Intent(MainActivity.this, StudentForm.class));
-        });
+        fab.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, StudentForm.class)));
     }
 
     @Override

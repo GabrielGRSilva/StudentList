@@ -24,7 +24,7 @@ public class StudentOverviewActivity extends AppCompatActivity {
             return insets;
         });
 
-        Student student = (Student) getIntent().getSerializableExtra("student");// Recupera o objeto passado à activity
+        Student student = getIntent().getParcelableExtra("student");;// Recupera o objeto passado à activity
 
         if (student != null) {
             setTextViews(student); // Configura os TextViews com os dados do estudante escolhido
