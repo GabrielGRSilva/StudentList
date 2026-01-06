@@ -21,7 +21,6 @@ public class Student implements Serializable {
         return nome;
     }
 
-
     public String getNome() {
         return nome;
     }

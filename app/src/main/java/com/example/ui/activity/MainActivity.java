@@ -2,8 +2,6 @@ package com.example.ui.activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.Parcelable;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import androidx.annotation.Nullable;
@@ -11,8 +9,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.aluramobile.R;
 import com.example.model.Student;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
-import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
