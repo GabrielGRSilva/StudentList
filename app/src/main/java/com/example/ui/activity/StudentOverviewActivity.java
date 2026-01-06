@@ -27,7 +27,7 @@ public class StudentOverviewActivity extends AppCompatActivity {
         Student student = (Student) getIntent().getSerializableExtra("student");// Recupera o objeto passado à activity
 
         if (student != null) {
-            setTextViews(student); // Configura os TextViews com os dados do estudante escolhido pelo usuário
+            setTextViews(student); // Configura os TextViews com os dados do estudante escolhido
         } else {
             Toast.makeText(this, "ERROR: Student == null", Toast.LENGTH_LONG).show();
             finish();
